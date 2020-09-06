@@ -10,8 +10,8 @@ function randomWidth() { return Math.random() * getScreenWidth(); }
 
 function toUnitVector(x = randomCentered(), y = randomCentered()) {
   const magnitude = Math.sqrt((x * x) + (y * y));
-  xBar = x / magnitude;
-  yBar = y / magnitude;
+  const xBar = x / magnitude;
+  const yBar = y / magnitude;
   return { x: xBar, y: yBar };
 }
 
@@ -134,35 +134,6 @@ class Element {
     this.present();
   }
 
-  // advanceBoring() {
-  //   this.x = this.x + (this.speed * this.direction.x);
-  //   if (this._xMin() < 0) {
-  //     this.x = 0;
-  //     this._bounceHorizontal();
-  //   } else if (this._xMax() > getScreenWidth()) {
-  //     this.x = getScreenWidth() - this.imgWidth;
-  //     this._bounceHorizontal();
-  //   }
-  //
-  //   this.y = this.y + (this.speed * this.direction.y);
-  //   if (this._yMin() < 0) {
-  //     this.y = 0;
-  //     this._bounceVertical();
-  //   } else if (this._yMax() > getScreenHeight()) {
-  //     this.y = getScreenHeight() - this.imgHeight;
-  //     this._bounceVertical();
-  //   }
-  //
-  //   this.present();
-  // }
-  // _bounceHorizontal() {
-  //   this.direction.x = -1 * this.direction.x;
-  // }
-  //
-  // _bounceVertical() {
-  //   this.direction.y = -1 * this.direction.y;
-  // }
-
   _xMin() { return this.x - (this.imgWidth / 2); }
   _xMax() { return this.x + (this.imgWidth / 2); }
   _yMin() { return this.y - (this.imgHeight / 2); }
@@ -228,6 +199,6 @@ window.onload = async function() {
     new Element('bison'),
     new Element('kiwi'),
   ]
-  setInterval(advanceElements, 50);
+  setInterval(advanceElements, 20);
   advanceElements();
 }
