@@ -1,8 +1,3 @@
-document.addEventListener("dragover", function(event) {
-  // prevent default to allow drop
-  event.preventDefault();
-}, false);
-
 function getScreenHeight() { return window.innerHeight; }
 function randomHeight() { return Math.random() * getScreenHeight(); }
 function getScreenWidth() { return window.innerWidth; }
@@ -193,6 +188,11 @@ function randomCentered(max = 1) {
 }
 
 window.onload = async function() {
+  document.getElementById('canvas').addEventListener("dragover", function(event) {
+    // prevent default to allow drop
+    event.preventDefault();
+  }, false);
+
   window._elAdding = true;
   window._elements = [
     new Element('flamingos'),
